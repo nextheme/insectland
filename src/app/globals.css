@@ -2,26 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  box-sizing: border-box
+}
+@import "../../public/assets/fonts/fontiran.css";
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
   color: rgb(var(--foreground-rgb));
+  font-family: iransansx;
+
   background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+
+.submenu {
+  visibility: hidden;
+  @apply p-2 z-50
+}
+.submenu > li  {
+  @apply border-b border-solid border-gray-200 last:border-b-0 py-1
+}
+.menulist li:hover > .submenu {
+  visibility: visible;
+}
+
+.menulist:hover li > a {
+  @apply text-black
+}
+.menulist li:hover > a {
+  @apply text-primary
+}
+.features > *:hover {
+  @apply border-primary
+}
+.features > *:hover .icon {
+  @apply bg-primary text-white
+}
+
+.social-banner {
+  @apply flex items-center justify-between rounded-2xl shadow-2xl bg-gradient-to-r  hover:shadow-none active:shadow-inner text-white p-4;
+  letter-spacing: 4;
+}
+.container {
+  @apply px-4
 }
